@@ -11,7 +11,7 @@ import {
   ChatMessage,
 } from '../types';
 
-const API_BASE = '/api';
+const API_BASE = (import.meta.env.VITE_API_BASE || import.meta.env.VITE_API_URL || (import.meta.env.DEV ? '/api' : 'https://campusstay-ai-backend.onrender.com/api')).replace(/\/$/, '');
 
 function getAuthHeader(): Record<string, string> {
   const token = localStorage.getItem('campusstay_token');
